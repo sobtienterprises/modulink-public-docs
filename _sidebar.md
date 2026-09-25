@@ -14,10 +14,18 @@
   - [Connect Indi Wi-Fi](workflows/connect-indi-wifi.md)
   - [Connect Indi LoRa or Agri](workflows/connect-lora-terminal.md)
   - [Configure Instruments and Outputs](workflows/configure-instruments.md)
+  - [Set Up Sensors and Verify Readings](workflows/configure-sensors.md)
+  - [Set Up Falcon](workflows/set-up-falcon.md)
+  - [Operate Falcon](workflows/operate-falcon.md)
   - [Operate Industrial Equipment](workflows/operate-industrial-equipment.md)
   - [Operate Irrigation](workflows/operate-irrigation.md)
 
 - Reference
   - [Safety and Field Wiring](reference/safety-and-wiring.md)
   - [Support and Troubleshooting](reference/support-and-troubleshooting.md)
+  - [Network and Access](reference/network-and-access.md)
+  - [Technician Commissioning](reference/technician-commissioning.md)
+  - [Falcon Cycle and Export API](reference/falcon-api.md)
+  - [Installation Record](reference/installation-record.md)
+  - [Self-install Gaps](reference/self-install-gaps.md)
   - [Documentation Status](reference/documentation-status.md)

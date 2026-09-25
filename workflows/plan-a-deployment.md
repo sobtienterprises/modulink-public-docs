@@ -2,6 +2,21 @@
 
 Plan the system before you order equipment or start field work.
 
+## Installation supplies
+
+- The Basestation, its supplied power unit, and an Ethernet cable.
+- Each terminal, its approved power source, and its matching harness or connector drawing.
+- The installed sensor's data sheet and any configured analog output endpoints.
+- A small flat-blade screwdriver, wire stripper, DC voltmeter, and approved wire connectors.
+- A phone or laptop with Wi-Fi for Indi Wi-Fi setup.
+- A monitor, keyboard, and mouse if the Basestation needs desktop Wi-Fi setup.
+- A loop calibrator when precision verification is required by the commissioning plan.
+- Site network information, product/profile mapping, and a private credential handover.
+
+The manual's 24 VDC industrial terminals do not include a supply. Confirm the
+packing list for the actual order. Power ratings, mounting hardware, sealing
+parts, antennas, and batteries must match the delivered product.
+
 ## 1. List each instrument
 
 For each instrument, record the manufacturer, model, output signal, power need,

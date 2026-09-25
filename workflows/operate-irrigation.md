@@ -28,6 +28,10 @@ water is flowing.
 Select **Stop** when you need to close the valve. A browser closing does not stop
 the timer. The Basestation continues the close operation.
 
+The Basestation must remain powered and the radio link must deliver the close
+command. Wait for a fresh reported closed state and verify the field result.
+Use the site's independent closure procedure if communication fails.
+
 ## 6. Review the record
 
 Review the run and alerts after watering. Record any unexpected valve state,
