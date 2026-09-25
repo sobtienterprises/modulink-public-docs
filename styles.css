@@ -33,8 +33,11 @@ body, .sidebar, .content { background: var(--bg-primary); color: var(--text-prim
 .sidebar-toggle { background: var(--bg-secondary); border-right: 1px solid var(--border-default); }
 .content { padding-top: var(--sp-10); }
 .markdown-section { max-width: 880px; padding: 0 var(--sp-10) var(--sp-16); }
-body .markdown-section h1, body .markdown-section h2, body .markdown-section h3 { color: #F5F5F5 !important; }
-body .markdown-section h1 a, body .markdown-section h2 a, body .markdown-section h3 a { color: #F5F5F5 !important; }
+body .markdown-section :is(h1, h2, h3, h4, h5, h6),
+body .markdown-section :is(h1, h2, h3, h4, h5, h6) :is(a, span) { color: var(--text-primary) !important; }
+body .sidebar ul li a { color: var(--text-secondary); white-space: normal; line-height: 1.5; }
+body .sidebar ul li.active > a, body .sidebar ul li a:hover { color: var(--text-primary); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 2px; }
 .markdown-section h1 { border-bottom: 1px solid var(--border-default); padding-bottom: var(--sp-4); }
 .markdown-section h2 { border-bottom: 1px solid var(--border-subtle); padding-bottom: var(--sp-2); margin-top: var(--sp-10); }
 .markdown-section p, .markdown-section li { color: var(--text-secondary); }
