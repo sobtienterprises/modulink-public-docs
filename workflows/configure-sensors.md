@@ -1,8 +1,9 @@
 # Set Up Sensors and Verify Readings
 
-A sensor model defines how to interpret a signal. A mapping assigns that model
-to one physical input. Application assignments then use the resulting measurement.
-Complete each step; a catalog entry alone does not connect a sensor to a dashboard.
+Read native current and voltage directly when electrical units are all you need.
+Use a sensor model to convert a signal to an engineering measurement such as
+pressure. A mapping connects that model to the physical input; creating a catalog
+entry alone does not connect the sensor to a dashboard.
 
 ## Before you start
 
@@ -10,40 +11,59 @@ Have the instrument data sheet, wiring map, actual output settings, and an
 independent reference. Record the terminal identity and input for each instrument.
 Confirm that fresh reports arrive before changing calibration.
 
-## 1. Choose the setup path shown on your Basestation
+## Current Core setup
+
+Open **Devices**, select the terminal, and open **Sensor Settings**. Select
+**Set up sensor inputs** when offered. Agri registers its three native
+Watermark resistance inputs, DS18B20 temperature input, battery, and terminal
+diagnostics. Indi LoRa registers its two current inputs, two voltage inputs,
+and output-state streams. Confirm the displayed terminal identity before
+continuing.
+
+The setup is based on the identified terminal. Do not add a replacement sensor
+or channel just because a reading is absent; first check the selected device,
+port, and latest report.
+
+For every supported source, use **Core → Channels → Add channel** to select a
+**Measurement** and its **Core stream**, then **Save binding**. Use **Actuator**
+and a **Core endpoint** for output command destinations. Register reported state
+shadows separately from their endpoints. This creates the dashboard channel;
+sensor models and scaling are configured separately below.
+
+## Map an analog transmitter to engineering units
+
+For supported current or voltage inputs, open **Devices → Sensor Settings** and
+expand **Map sensors to inputs**. Select the stream's matching **Sensor model**,
+confirm its measurement range and electrical signal range, and select **Save
+sensor mapping**. A model can provide the signal endpoints directly; a generic
+measurement model may ask for **Signal minimum** and **Signal maximum** in mA or
+V. Enter the transmitter's configured endpoints, not an assumed data-sheet
+default. A current transmitter must use a current input; a voltage transmitter
+must use a voltage input. The message after saving distinguishes a saved mapping
+from one that Core has made effective.
+
+Native Indi LoRa current inputs measure 0–20 mA. A sensor model can map a
+transmitter's 4–20 mA electrical span to its engineering units without changing
+the raw electrical reading. Optional per-channel **live-zero fault detection**
+is disabled by default. When enabled for a 4–20 mA transmitter, Core flags a
+measured value below 3.9 mA as a fault and retains the actual measured current.
+
+For Agri, follow [Set Up Agri Irrigation](set-up-agri-irrigation.md) to configure
+each Watermark model and its temperature compensation before registering the
+derived soil-tension streams in Core.
+
+## Legacy channel calibration
 
 | Screen | Use |
 | --- | --- |
-| **Instrument Manager → Sensors → Map sensors to inputs** | Current Core sensor mappings. Use electrical units such as mA or V. |
+| **Instrument Manager → Sensors** | Current sensor models and Watermark setup. |
 | Device **Sensor Settings**, with **ADC min**, **ADC max**, and **Save All** | Legacy channel calibration from the July manual. |
 
 Do not enter legacy raw ADC counts into a field labeled mA or V. Current Core
 models, legacy catalog entries, and installed calibrations are separate records.
 Changing a catalog entry does not automatically upgrade every installed sensor.
 
-## 2. Current sensor mapping
-
-1. Open **Instrument Manager → Sensors**.
-2. Select the terminal by name and identity.
-3. If **Set up sensor inputs** is shown, complete the approved product setup.
-   Some initialization operations require an Admin account.
-4. Under **Map sensors to inputs**, find the physical current or voltage input.
-5. Select **Sensor model**. Check its measurement range and unit.
-6. Check the electrical signal range. For a compatible generic model, enter
-   **Signal minimum** and **Signal maximum** in the displayed mA or V units.
-7. Select **Save sensor mapping**.
-8. Wait for a new reading and compare it with the independent reference.
-
-A current-output sensor must use a current input. A voltage-output sensor must
-use a voltage input. If the model needs several inputs or additional calibration,
-use its advanced setup with a technician.
-
-For Indi Wi-Fi, current measurements can require board ADC calibration before
-physical measurements are available. Do not supply guessed board calibration.
-For Agri, configure the three Watermark probes together in Instrument Manager;
-the legacy 4–20 mA procedure below does not apply to soil probes.
-
-## 3. Legacy catalog: pressure example
+## Legacy catalog: pressure example
 
 Open the legacy **Sensor Catalog**. In the current Instrument Manager this is
 under **Sensor Catalog → Legacy ADC catalog**. On older releases it is a separate
@@ -65,7 +85,7 @@ The sensor is nominally 0–25 bar. The manual uses the manufacturer's rounded
 360 psi figure. Record the chosen unit and range, and verify against a reference
 gauge. Do not mix a rounded psi range with an exact bar conversion unnoticed.
 
-## 4. Legacy catalog: flow example
+## Legacy catalog: flow example
 
 Create a separate entry for the ProSense FTS100-1002:
 
@@ -89,7 +109,7 @@ Gallons per minute is a volume rate, not velocity. A pipe-area conversion needs
 the actual internal diameter and a defined conversion. Renaming ft/s as gpm does
 not perform that conversion.
 
-## 5. Bind a legacy model to a channel
+## Bind a legacy model to a channel
 
 For other 4–20 mA instruments, use the same catalog procedure. Copy manufacturer
 and model from the label. Select the measurement type, such as pH, temperature,
@@ -109,7 +129,7 @@ If the page shows no channels, wait for a fresh terminal report and reopen it.
 If only raw data is available, confirm the device's measurement setup before
 creating additional catalog records.
 
-## 6. Two-point calibration for the legacy current-input path
+## Two-point calibration for the legacy current-input path
 
 This is a technician procedure. Isolate the process sensor before substituting
 a calibrator. Make sure the calibrator's source/simulate mode matches the circuit.
@@ -136,12 +156,17 @@ For a linear 4–20 mA example, 12 mA is halfway between the configured engineer
 endpoints. A 0–360 psi mapping should therefore read about 180 psi. Apply the
 accuracy tolerance agreed for the actual instrument and acquisition chain.
 
-## 7. Recognize invalid readings
+## Recognize invalid readings
 
-**Fault (no loop)** or **Fault / no loop** indicates an invalid low signal, not
-zero pressure or zero flow. Check loose wiring, sensor power, and sensor fault
-status. The manual gives approximate thresholds near 3.5–3.6 mA; the exact
-threshold depends on the product and active interpretation.
+For current Core inputs, live-zero is disabled by default. An unconnected
+input may correctly report near 0 mA. Enable live-zero per channel when using a
+transmitter that requires a live zero; the fault threshold is below 3.9 mA and
+the measured current remains visible. Check wiring and sensor power when a
+fault is reported.
+
+Older ADC-based releases can display **Fault (no loop)** or **Fault / no loop**.
+The July manual's approximate 3.5–3.6 mA thresholds apply only to that legacy
+interpretation, not to the current Core live-zero policy.
 
 Treat **Fault (over-range)** as invalid until investigated. Do not widen the
 engineering range to hide a wiring fault. Stale or rejected measurements also
@@ -149,11 +174,13 @@ must not be treated as current process values.
 
 ## Acceptance check
 
-- [ ] Every wired input has the correct model, signal range, and unit.
+- [ ] Every wired input has the correct unit and range, plus a sensor model when engineering scaling is needed.
 - [ ] Physical input and software identity are recorded.
 - [ ] Endpoints and an intermediate reading meet the agreed tolerance.
 - [ ] A fresh process reading agrees with the independent reference.
-- [ ] Invalid or disconnected inputs are identified as faults.
+- [ ] Each input's fault policy matches its intended use; check live-zero when enabled.
 - [ ] Application roles use the intended measurements.
 
-Next: [Set Up Falcon](set-up-falcon.md), or the Irrigation setup for the site.
+Next: [Set Up Falcon](set-up-falcon.md) or [Set Up Agri Irrigation](set-up-agri-irrigation.md).
+
+Last reviewed: 2026-09-27.

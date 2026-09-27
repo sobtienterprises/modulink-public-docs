@@ -59,3 +59,7 @@ Check account role, completed initialization, saved settings, and the selected
 product profile. Disabled outputs can be unavailable in the saved configuration.
 If the UI reports that settings changed, refresh and review before sending a command.
 Do not enable an unfamiliar output simply to make a button available.
+
+For an R7 ordinary finite control run with reported intent and retry behavior,
+see [Use the Industrial Demonstrator](use-benchtop.md). Its estimated-measurement
+choice is separate from the Irrigation input defaults.

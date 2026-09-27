@@ -15,23 +15,24 @@ unit uses 24 VDC. Do not apply one product's power or wiring instructions to ano
 
 ## 2. Register the radio identity
 
-The current Provisioning page has a LoRa registration panel with **Device ID**,
-**AppKey**, and **Name**, followed by **Register Terminal**. That panel was built
-for legacy LoRa registration. Use it only when the supplied profile mapping
-confirms support for your unit.
+The Provisioning page has **Register a LoRaWAN Terminal** with **Device ID**,
+**Terminal model**, **AppKey**, and **Name**, followed by **Register Terminal**.
+Choose the model that matches the supplied product handover: **R7 LoRa (Class A)**,
+**Agri R6.1 LoRa**, or **Legacy R4 LoRa**.
 
-1. Open **Provisioning** and expand the LoRa registration panel.
-2. Enter the DevEUI from the unit, without spaces.
-3. Enter the key supplied for that unit. Leave the field blank only if the site
-   administrator confirms that the configured site default is correct.
-4. Enter a useful name and select **Register Terminal**.
-5. Record **Terminal registered** or **Already registered**. Check an existing
-   entry before changing it.
+1. Open **Provisioning** and expand **Register a LoRaWAN Terminal**.
+2. Enter the 16-character DevEUI from the unit, without spaces.
+3. Select the matching **Terminal model**.
+4. Enter the supplied AppKey, or leave it blank only when the site administrator
+   confirms the site default is correct.
+5. Enter a useful name and select **Register Terminal**.
+6. Record **Terminal registered** or **Already registered**. Check an existing
+   entry before changing it. Registration does not confirm a successful join.
 
-If the panel does not support the delivered product, a technician must use the
-ChirpStack console and its supplied profile. The exact current Indi LoRa and
-Agri profile values still require a released installation reference; see
-[Self-install Gaps](../reference/self-install-gaps.md).
+If **Already registered** appears, verify the terminal's existing record and
+the handover before changing any key or model. If the product model is missing
+from the list, stop and ask the site administrator for the approved software
+and radio profile mapping.
 
 ## Technician path: ChirpStack registration
 
@@ -77,7 +78,7 @@ Do not apply this legacy table to Agri or current Indi LoRa.
 4. Enter the site name, map position, and installation notes.
 5. Select **Provision Device** and wait for terminal feedback.
 
-If the industrial legacy profile is missing, stop. The old manual's fixed-ID
+If the correct product profile is missing, stop. The old manual's fixed-ID
 SQL insertion is not a general repair procedure for a current database. Have
 the technician use the [Rev E browser profile procedure](../reference/technician-commissioning.md)
 when it applies, or obtain the correct profile for the installed release.
@@ -89,10 +90,21 @@ when it applies, or obtain the correct profile for the installed release.
 3. Open **Telemetry History** and confirm the expected channels.
 4. Record the profile, firmware, report interval, and first-report time.
 
+If a first telemetry report arrived before the terminal was identified with its
+matching profile, check its status in **Provisioning**. If it is listed under
+**Unrecognized Devices**, match its printed DevEUI and provision it with the
+approved profile. If it is already provisioned, retain that record and follow
+the displayed identification/report status. After the matching report arrives,
+open **Devices → Sensor Settings** and check
+whether **Set up sensor inputs** is available. Confirm the terminal identity and
+profile shown by the application; do not guess from a temporary absence of
+streams or use a hidden identifier.
+
 Rev E says indicator colors vary by hardware and describes join retries about
 every 15 seconds. Use network frames and fresh telemetry as proof of reception.
-If no report appears after two minutes, check power, DevEUI, key, profile,
-gateway reception, and application selection. Do not infer join success from an LED.
+If no report appears within the expected interval for that product, check power,
+DevEUI, key, profile, gateway reception, and application selection. Do not infer
+join success from an LED.
 
 Next: [Set Up Sensors](configure-sensors.md) and complete the
 [commissioning checks](commission-a-terminal.md).

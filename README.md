@@ -27,12 +27,13 @@ complete product-specific field installation instructions and acceptance evidenc
 5. [Register and Commission a Terminal](workflows/commission-a-terminal.md).
 6. [Set Up Sensors and Verify Readings](workflows/configure-sensors.md).
 7. [Configure Terminal Settings and Outputs](workflows/configure-instruments.md), if used.
-8. [Set Up Falcon](workflows/set-up-falcon.md) and [Operate Falcon](workflows/operate-falcon.md), or follow the site's Irrigation setup.
-9. Complete the [Installation Record and Acceptance Checklist](reference/installation-record.md).
+8. Set up the application: [Falcon](workflows/set-up-falcon.md) and [operate Falcon](workflows/operate-falcon.md), or [set up Agri Irrigation](workflows/set-up-agri-irrigation.md) and [operate it](workflows/operate-irrigation.md).
+9. For a timed Indi LoRa output demonstration, use the [Industrial Demonstrator workflow](workflows/use-benchtop.md).
+10. Complete the [Installation Record and Acceptance Checklist](reference/installation-record.md).
 
 ## What this site does not contain
 
 This site does not contain passwords, device keys, factory procedures, or
 internal engineering records. Contact Modulink when you need those items.
 
-Last reviewed: 2026-09-25.
+Last reviewed: 2026-09-27.

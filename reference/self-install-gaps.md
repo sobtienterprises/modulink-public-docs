@@ -1,6 +1,6 @@
 # Self-install Readiness: Remaining Gaps
 
-Reviewed 2026-09-25. The detailed industrial manual has been migrated and updated
+Reviewed 2026-09-27. The detailed industrial manual has been migrated and updated
 against the current application source. This does **not** yet establish that an
 operator can install every product without assistance.
 
@@ -45,11 +45,14 @@ deliverable is supplied and its acceptance check passes.
   key handling, and operator registration path for each shipping product.
   Check: factory-new units join and deliver a first report using only that procedure.
   The documented legacy Class C profile must not be assumed for Agri.
-- [ ] **G7 — Agri application setup.** Irrigation owner: publish steps to create
-  the operation/field/block/station, assign probes and valve, enter depths and
-  soil/crop settings, choose thresholds, and verify the water workflow. Check:
-  a new site reaches a useful irrigation view from an empty database. The current
-  page describes operation after setup; the industrial manual does not supply this chapter.
+- [ ] **G7 — Agri field and irrigation setup.** An operator can now create a
+  monitoring station, review its seven Agri measurement roles, choose the
+  temperature sensor's physical role and valve wiring, and save the reviewed
+  station in [Agri Irrigation setup](../workflows/set-up-agri-irrigation.md).
+  The advanced setup also covers farm, field, zone, depths, and soil/crop
+  settings. Field installation instructions, numeric acceptance limits, and a
+  fresh-install acceptance record are still outstanding; a setup page does not
+  establish that a new site reaches an accepted irrigation view.
 - [ ] **G8 — Sensor calibration and acceptance limits.** Hardware/metrology owner:
   identify board calibration supplied with current Indi Wi-Fi and the approved
   Core mapping/calibration path for each product. Supply numeric tolerances and
@@ -65,8 +68,8 @@ deliverable is supplied and its acceptance check passes.
   Record every intervention and capture final UI screenshots with secrets removed.
   Include Indi Wi-Fi, current and legacy Indi LoRa, Agri, Falcon, and Irrigation
   where supported. Check: all applicable steps in the installation record pass.
-  Current source review is complete; current live-station verification remains
-  unavailable because `modulink.local` has not resolved from this workstation.
+  Some workflows have current source and retained browser evidence, but the
+  required fresh-install rehearsals and acceptance checklist are not complete.
 
 ## Handover and support gaps
 

@@ -31,6 +31,21 @@ result for each test; do not mark a test passed because configuration was saved.
 Record calibration endpoint counts separately where the legacy ADC path uses them.
 For current sensor mappings, retain the installed model/calibration revision.
 
+## Core registration record
+
+Record every supported terminal measurement, diagnostic stream, reported state
+shadow, and output endpoint. A shadow reports state; an endpoint receives a
+command. Registering an endpoint is not permission to operate it.
+
+| Terminal | Physical input, diagnostic, shadow, or endpoint | Core meaning and unit | Dashboard name | Registered and verified |
+| --- | --- | --- | --- | --- |
+| | | | | |
+
+For native current inputs, record the 0–20 mA measurement and the sensor model's
+engineering scaling separately. Record whether live-zero is enabled on each
+4–20 mA channel. When enabled, it flags measured current below 3.9 mA while
+preserving the actual measured value.
+
 ## Acceptance sequence
 
 - [ ] Confirm the packing list, product identities, power ratings, and installation drawings.
@@ -40,6 +55,8 @@ For current sensor mappings, retain the installed model/calibration revision.
 - [ ] Verify individual accounts, roles, and changed temporary credentials.
 - [ ] Confirm time and hostname/direct-IP access.
 - [ ] Verify every terminal's identity, profile, and at least two fresh reports.
+- [ ] Reconcile all supported Core measurements, diagnostics, state shadows, and endpoints against the product list and register each once.
+- [ ] Record each current channel's live-zero setting and confirm any flagged value remains visible as the measured current.
 - [ ] Verify every sensor at endpoints and an intermediate reference value where applicable.
 - [ ] Confirm fault indication for an invalid input using the approved test method.
 - [ ] Confirm application assignments against the physical instrument map.

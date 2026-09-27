@@ -1,40 +1,33 @@
 # Operate Irrigation
 
-Use this workflow for Agri after commissioning is complete.
+Use this workflow after completing [Agri Irrigation setup](set-up-agri-irrigation.md)
+and confirming the site's valve procedure.
 
 ## 1. Check the station
 
-Open Irrigation on the Basestation. Select the field, block, or zone. Check the
-soil-tension readings, soil temperature, battery status, and open-valve status.
+Open **Irrigation** and select the station. Review the latest soil-tension
+readings, the temperature role, battery and terminal diagnostics, alerts, and
+reported valve state. Check timestamps and quality before relying on a reading.
+Inspect the field when readings are unexpected or a sensor fault is shown.
 
-## 2. Review the conditions
+## 2. Open the valve
 
-Review the latest readings and alerts. Check that data is current. Inspect the
-field when a reading is unexpected or a sensor fault is shown.
+Use **Manual override** only when an operator is authorized and the approved
+field procedure is ready. Enter an approved value in **Open for (minutes)** when
+using a finite run, then select **Open valve**. Do not infer water flow from the
+command or the valve state alone.
 
-## 3. Start watering
+## 3. Confirm and close
 
-Open the station. Enter the required watering duration. Select **Start watering**.
-The Basestation records the requested stop time before it sends the command.
+Wait for a fresh reported valve state and verify the physical result when the
+operation requires it. Select **Close valve** when closure is needed, then wait
+for fresh closed-state feedback. A browser closing is not a closure procedure.
+The Basestation must remain powered and the radio link must deliver the command;
+use the site's independent closure procedure if communication fails.
 
-## 4. Confirm the valve state
+## 4. Review the record
 
-Wait for fresh terminal feedback. Confirm the valve state in the field when your
-operation requires it. A command accepted by the Basestation is not proof that
-water is flowing.
+Review station history and alerts after the operation. Record any unexpected
+valve state, missing report, or safety condition before starting another run.
 
-## 5. Stop watering
-
-Select **Stop** when you need to close the valve. A browser closing does not stop
-the timer. The Basestation continues the close operation.
-
-The Basestation must remain powered and the radio link must deliver the close
-command. Wait for a fresh reported closed state and verify the field result.
-Use the site's independent closure procedure if communication fails.
-
-## 6. Review the record
-
-Review the run and alerts after watering. Record any unexpected valve state,
-missing report, or safety condition before you start another run.
-
-Last reviewed: 2026-09-25.
+Last reviewed: 2026-09-27.

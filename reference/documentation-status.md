@@ -13,20 +13,23 @@ getmodulink.com.
 
 ## Review rule
 
-This migration was reviewed on 2026-09-25. Check the product label on the equipment before you
-use a procedure. Do not use an Indi LoRa (Legacy) procedure for Indi LoRa.
+Core commissioning, Indi LoRa, Agri Irrigation, and Industrial Demonstrator
+guidance was refreshed against application source on 2026-09-27. Other product
+chapters retain their individual review dates.
+Check the product label on the equipment before you use a procedure. Do not use
+an Indi LoRa (Legacy) procedure for Indi LoRa.
 
 ## Installation coverage
 
 The industrial installation procedures incorporate the Falcon Water Tech manual,
 Rev E, dated 2026-07-09. Current workflow labels and behavior were checked against
-the application source on 2026-09-25. Historical chapter drafts differ from Rev E;
+the application source on 2026-09-27. Historical chapter drafts differ from Rev E;
 the current procedures resolve those differences where source evidence is available.
 
-This is a documentation and source review, not a completed physical installation
-test. No current live walkthrough of the example Basestation was possible from
-this workstation. The [self-install checklist](self-install-gaps.md) records the
-remaining product instructions and verification needed.
+This is a documentation and source review, not proof that every procedure has
+passed a fresh-install or physical acceptance run. Some bounded workflows have
+retained browser observations, but the remaining installation instructions and
+acceptance work are listed in the [self-install checklist](self-install-gaps.md).
 
 The manual's credentials, obsolete direct SQL insertion, and photo placeholders
 were not republished. Credential handover, current profile setup, and required

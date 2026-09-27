@@ -18,7 +18,9 @@
   - [Set Up Falcon](/workflows/set-up-falcon.md)
   - [Operate Falcon](/workflows/operate-falcon.md)
   - [Operate Industrial Equipment](/workflows/operate-industrial-equipment.md)
+  - [Set Up Agri Irrigation](/workflows/set-up-agri-irrigation.md)
   - [Operate Irrigation](/workflows/operate-irrigation.md)
+  - [Use the Industrial Demonstrator](/workflows/use-benchtop.md)
 
 - Reference
   - [Safety and Field Wiring](/reference/safety-and-wiring.md)

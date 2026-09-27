@@ -5,8 +5,9 @@ control. It reports to the on-site Modulink Basestation.
 
 ## Main features
 
-- Three Irrometer Watermark soil-tension channels.
-- One soil-temperature input.
+- Three IRROMETER Watermark 200-SS resistance inputs interpreted as soil tension.
+- One DS18B20 temperature input. Its installation role depends on where the
+  sensor is physically placed; soil temperature and air temperature are distinct.
 - One latching-valve drive.
 - Four C-cell battery power.
 - LoRaWAN US915 connection.
@@ -23,9 +24,13 @@ The valve drive is for one compatible latching valve. It is not proof that the
 physical valve moved. Use independent field checks and safety controls where
 they are required.
 
+The DS18B20 reading can also be assigned as a Watermark temperature-compensation
+input when available. Compensation is a separate use of the temperature reading;
+it does not change the sensor's physical installation role.
+
 ## Next step
 
 Follow [Connect Indi LoRa or Agri](../workflows/connect-lora-terminal.md), then
-[Configure Instruments and Outputs](../workflows/configure-instruments.md).
+[Set Up Agri Irrigation](../workflows/set-up-agri-irrigation.md).
 
-Last reviewed: 2026-09-25.
+Last reviewed: 2026-09-27.
