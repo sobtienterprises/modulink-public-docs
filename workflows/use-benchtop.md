@@ -28,8 +28,19 @@ agreed test procedure before enabling or operating it.
    interval, with a minimum of 30 seconds. Radio receipt-based timestamps need
    **Allow inferred acquisition times or unknown time precision** enabled.
 5. Choose **Output endpoint**, then set **When activated** and **When released**.
-   Check the displayed units and permitted range for an analog output.
-6. Select **Save binding**.
+   For an analog output, choose **Enable analog output** under **When activated**.
+   A **Setpoint** field appears. Enter the value in the displayed unit and range.
+   Choose **Disable analog output** under **When released** if the rule should
+   turn the output off when the input is at or below the release threshold.
+   These fields prepare the run. Changing them does not operate the output.
+6. Select **Save binding**. Check that the saved input, rule, and output are correct.
+
+   ![Demonstrator shows a saved relay rule with a live voltage reading, two thresholds, and its output terminal.](../assets/screenshots/demonstrator-saved-relay-rule.png)
+
+   *Example: the saved rule connects a voltage input to a relay. Use the values
+   required for your equipment; the numbers shown here are for a bench test.*
+
+   <a href="assets/screenshots/demonstrator-saved-relay-rule.png" target="_blank" rel="noopener">Open the saved-rule image at full size</a>
 
 The Demonstrator's **Allow measurements marked estimated** setting is separate
 from Irrigation's input policy; review it for this rule. Invalid measurements
@@ -49,6 +60,13 @@ enable or operate the output.
    **Firmware-reported target**, including its timestamp. Verify the physical
    result using the agreed commissioning procedure.
 
+   ![Completed analog run shows a saved 1 V target, finished status, and a fresh Disabled report from the terminal.](../assets/screenshots/demonstrator-analog-finished-run.png)
+
+   *Example after the time limit: the run is finished and the terminal reports
+   Disabled. The report does not measure the voltage at the output terminals.*
+
+   <a href="assets/screenshots/demonstrator-analog-finished-run.png" target="_blank" rel="noopener">Open the completed-run image at full size</a>
+
 To end early, select **Stop and request safe output**. Expiry and Stop request
 relay **Off** or analog **Disabled**, independently of the rule's released target.
 Analog disabled is different from an enabled 0 V setpoint.
@@ -63,4 +81,4 @@ offered. Once the run finishes, **Archive completed request** prepares the form
 for another run. Existing bindings that show **Saved control workflow** retain
 their earlier control path; create a new demonstrator to use this finite-run path.
 
-Last reviewed against application source: 2026-09-27.
+Last reviewed against application source and saved UI evidence: 2026-09-28.
