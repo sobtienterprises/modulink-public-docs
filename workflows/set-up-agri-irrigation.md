@@ -33,8 +33,13 @@ valve or start automatic control.
    <a href="https://sobtienterprises.github.io/modulink-public-docs/assets/screenshots/agri-watermark-compensation-lower.png" target="_blank" rel="noopener">Open full-size image</a>
 
 3. **Save and check the sensor setup.** Select **Save Watermark sensors**.
-   The page should show a summary for each Watermark sensor and an **Edit
-   Watermark sensors** link.
+   The form closes and the page shows a summary for WM1, WM2, and WM3, with
+   their temperature compensation settings. Use **Edit Watermark sensors**
+   only when you want to change those settings.
+
+   ![Saved Watermark summary shows WM1, WM2, and WM3 configured with DS18B20 temperature compensation.](../assets/screenshots/agri-watermark-saved-summary.png)
+
+   <a href="https://sobtienterprises.github.io/modulink-public-docs/assets/screenshots/agri-watermark-saved-summary.png" target="_blank" rel="noopener">Open full-size image</a>
 
 4. **Review estimated readings and corrections.** Without a compensation
    input, the built-in WATERMARK 200SS model uses its 24 °C reference and marks
