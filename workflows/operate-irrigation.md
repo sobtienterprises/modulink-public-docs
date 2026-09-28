@@ -41,6 +41,18 @@ and confirming the site's valve procedure.
 
    *Check the report time as well as the valve state.*
 
+6. **Review the run record.** On the same station page, find **Recent valve
+   runs**. Check the requested duration, scheduled stop, and completion time.
+   **Expected:** the completed entry shows **Run finished**. The record stays
+   available when you leave the page and return.
+
+   ![Recent valve runs shows a finished 60-second run with request, scheduled stop, stop command, and completion times.](../assets/screenshots/agri-finite-run-history.png)
+
+   <a href="https://sobtienterprises.github.io/modulink-public-docs/assets/screenshots/agri-finite-run-history.png" target="_blank" rel="noopener">Open full-size image</a>
+
+   *These times describe the timer and stop requests. The record does not prove
+   valve movement or water flow. Also check the fresh Closed device report.*
+
 To stop early, select **Close valve**, then wait for a fresh **Closed** report.
 The timer continues if you close the browser. Keep the Basestation powered so
 it can send the close command. If communication fails, use the site's
@@ -50,4 +62,4 @@ Verify the physical result when the site procedure requires it. Check the
 station state and alerts before another operation. A reported valve state
 does not prove that water is flowing.
 
-Last reviewed: 2026-09-27.
+Last reviewed: 2026-09-28.
