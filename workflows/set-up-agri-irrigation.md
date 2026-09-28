@@ -22,11 +22,11 @@ valve or start automatic control.
    DS18B20 is physically installed. If there is no unique candidate, select
    the correct stream yourself or use the model reference when appropriate.
 
-   ![Sensor Settings shows the DS18B20 temperature stream selected for Watermark sensors WM1 and WM2.](../assets/screenshots/agri-watermark-compensation-top.png)
+   ![The new Watermark setup form already has DS18B20 temperature selected for WM1 and WM2.](../assets/screenshots/agri-watermark-default-ds18b20.png)
 
-   <a href="https://sobtienterprises.github.io/modulink-public-docs/assets/screenshots/agri-watermark-compensation-top.png" target="_blank" rel="noopener">Open full-size image</a>
+   <a href="https://sobtienterprises.github.io/modulink-public-docs/assets/screenshots/agri-watermark-default-ds18b20.png" target="_blank" rel="noopener">Open full-size image</a>
 
-   *The next part of the form shows the WM2 and WM3 selections and the save controls.*
+   *The form selects the onboard DS18B20 when it is the only temperature input on that terminal. Check all three rows, then save. The next image shows the lower part of the form.*
 
    ![The lower part of Sensor Settings shows the DS18B20 selected for WM2 and WM3.](../assets/screenshots/agri-watermark-compensation-lower.png)
 
@@ -90,4 +90,4 @@ For installation limits, see
 [Self-install Readiness](../reference/self-install-gaps.md) and the
 [Installation Record](../reference/installation-record.md).
 
-Last reviewed: 2026-09-27.
+Last reviewed: 2026-09-28.
