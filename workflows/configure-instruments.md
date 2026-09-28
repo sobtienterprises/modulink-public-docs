@@ -44,10 +44,25 @@ Tell the person at the equipment which output you intend to operate.
 
 1. Check that no unsaved settings remain.
 2. Confirm the output name, displayed unit, and permitted range.
-3. Send one command.
+3. Send one command and follow its displayed command number and delivery status.
 4. Wait for a fresh **Reported** state and timestamp.
 5. Have the person at the equipment verify the physical result.
 6. Return the equipment to its agreed safe state and record the result.
+
+The command status and the reported output answer different questions:
+
+| Command status | Meaning |
+| --- | --- |
+| Queued or accepted by the network | Delivery is progressing; terminal application is not yet confirmed. |
+| Device reports applied | The terminal acknowledged application. Verify the fresh reported output and physical result separately. |
+| Duplicate ignored | This receipt does not establish whether an earlier attempt applied the command. Application remains unconfirmed. |
+| Busy or rejected | The terminal did not accept this attempt. Review the result before deciding whether to retry. |
+| Delivery unconfirmed or status unavailable | The outcome is unknown. Inspect the reported state before sending another command. |
+
+The page follows the command number returned by that submission. Reloading the
+same browser session retains that reference; checking its status does not send
+another output command. A late acknowledgment can still update an unconfirmed
+result.
 
 **Last reported**, **Unknown**, or **No state reported yet** does not establish
 the current physical state. Wireless failure can prevent a stop command from
