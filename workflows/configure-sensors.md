@@ -70,7 +70,7 @@ In this example, live-zero is off for input 1 and on for input 2. Both inputs
 show their measured current. These are example readings from unconnected
 inputs, not calibration targets.
 
-[Open the full-size screenshot](../assets/screenshots/core-current-live-zero.png).
+<a href="https://sobtienterprises.github.io/modulink-public-docs/assets/screenshots/core-current-live-zero.png" target="_blank" rel="noopener">Open full-size image</a>
 
 For older ADC-based hardware, follow the [Legacy Sensor Calibration
 Reference](../reference/legacy-sensor-calibration.md). Do not use its ADC
