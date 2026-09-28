@@ -3,6 +3,9 @@
 Use these steps after completing [Agri Irrigation setup](set-up-agri-irrigation.md)
 and confirming the site's valve procedure.
 
+Timed manual control is available in **L0 — Monitor** when the valve is set up
+and your account can control it. You can keep automatic irrigation off.
+
 ## Steps
 
 1. **Open the station.** Select **Irrigation → My Zones**, then select
@@ -61,5 +64,26 @@ independent closure procedure.
 Verify the physical result when the site procedure requires it. Check the
 station state and alerts before another operation. A reported valve state
 does not prove that water is flowing.
+
+## Check the overview
+
+Select **Irrigation → Overview** to see all station cards.
+
+- Read **VALVES OPEN NOW** at the top of the page.
+- Check the valve state and report time on each station card.
+- Check the field summary. Its count should agree with the station cards.
+
+![The overview shows one valve open. The Backyard card shows Valve open and its device report time.](../assets/screenshots/agri-overview-open-count.png)
+
+<a href="https://sobtienterprises.github.io/modulink-public-docs/assets/screenshots/agri-overview-open-count.png" target="_blank" rel="noopener">Open full-size image</a>
+
+*One station reports Open. The total is 1.*
+
+![After the timed run, the overview shows zero valves open. The Backyard card shows a newer Valve closed report.](../assets/screenshots/agri-overview-closed-count.png)
+
+<a href="https://sobtienterprises.github.io/modulink-public-docs/assets/screenshots/agri-overview-closed-count.png" target="_blank" rel="noopener">Open full-size image</a>
+
+*After a fresh Closed report, the total is 0. These counts describe terminal
+reports. They do not measure water flow.*
 
 Last reviewed: 2026-09-28.
