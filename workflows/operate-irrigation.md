@@ -27,6 +27,8 @@ and confirming the site's valve procedure.
 
    ![Manual override shows Valve open, the device report time, and 14 seconds left on the timer.](../assets/screenshots/agri-finite-manual-open-countdown.png)
 
+   <a href="https://sobtienterprises.github.io/modulink-public-docs/assets/screenshots/agri-finite-manual-open-countdown.png" target="_blank" rel="noopener">Open full-size image</a>
+
    *The countdown continues while the valve is open. Use Close valve to stop early.*
 
 5. **Wait for the timer.** When the countdown ends, the application shows
@@ -34,6 +36,8 @@ and confirming the site's valve procedure.
    Timer expiry alone does not confirm that the valve closed.
 
    ![Manual override shows a fresh Valve closed report after the timed run.](../assets/screenshots/agri-finite-manual-closed.png)
+
+   <a href="https://sobtienterprises.github.io/modulink-public-docs/assets/screenshots/agri-finite-manual-closed.png" target="_blank" rel="noopener">Open full-size image</a>
 
    *Check the report time as well as the valve state.*
 

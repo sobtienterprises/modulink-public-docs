@@ -24,9 +24,13 @@ valve or start automatic control.
 
    ![Sensor Settings shows the DS18B20 temperature stream selected for Watermark sensors WM1 and WM2.](../assets/screenshots/agri-watermark-compensation-top.png)
 
+   <a href="https://sobtienterprises.github.io/modulink-public-docs/assets/screenshots/agri-watermark-compensation-top.png" target="_blank" rel="noopener">Open full-size image</a>
+
    *The next part of the form shows the WM2 and WM3 selections and the save controls.*
 
    ![The lower part of Sensor Settings shows the DS18B20 selected for WM2 and WM3.](../assets/screenshots/agri-watermark-compensation-lower.png)
+
+   <a href="https://sobtienterprises.github.io/modulink-public-docs/assets/screenshots/agri-watermark-compensation-lower.png" target="_blank" rel="noopener">Open full-size image</a>
 
 3. **Save and check the sensor setup.** Select **Save Watermark sensors**.
    The page should show a summary for each Watermark sensor and an **Edit
