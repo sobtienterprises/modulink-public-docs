@@ -1,105 +1,83 @@
 # Set Up Agri Irrigation
 
-Use this workflow after the Agri terminal is registered and its Core sources
-are available. It creates or resumes a monitoring station and maps its readings.
-It does not open the valve or start automatic control.
+Use this workflow to prepare an Agri station for monitoring. It does not open a
+valve or start automatic control.
 
-## 1. Set up the terminal's native sources
+## Steps
 
-Follow [Register and Commission a Terminal](commission-a-terminal.md) and use
-**Devices → Sensor Settings → Set up sensor inputs**. The three native
-Watermark inputs report resistance. The DS18B20 is a temperature reading.
-Battery, reservoir-rail, and coil-pulse-current streams are diagnostics, not
-soil sensors.
+1. **Set up the Agri inputs.** Open **Devices**, select the Agri terminal, open
+   **Sensor Settings**, and select **Set up sensor inputs**. The terminal
+   provides three Watermark resistance inputs, one DS18B20 temperature input,
+   and diagnostic streams such as battery, reservoir-rail, and coil-pulse
+   current. If no Agri terminal is offered, check its visible profile,
+   firmware, and latest report in **Devices**, then try again.
 
-If no eligible Agri terminal appears in setup, check **Devices** for a fresh
-report and a matching Agri profile and firmware identification. Use the visible
-terminal details to confirm which unit is ready, then retry setup. Do not enter
-an internal device identifier or create a substitute channel to work around a
-missing terminal.
+2. **Select the Watermark and temperature inputs.** Open **Devices**, select
+   the Agri terminal, and open **Sensor Settings**. If the Watermark settings
+   are already saved, select **Edit Watermark sensors**.
+   Configure WM1, WM2, and WM3 as separate soil-tension sensors. When exactly
+   one temperature stream from this terminal is available, the form selects
+   it. Check that it is the DS18B20, or select that stream yourself. It
+   compensates all three Watermarks. This setting does not change where the
+   DS18B20 is physically installed. If there is no unique candidate, select
+   the correct stream yourself or use the model reference when appropriate.
 
-## 2. Configure Watermark sensors and compensation
+   ![Sensor Settings shows the DS18B20 temperature stream selected for Watermark sensors WM1 and WM2.](../assets/screenshots/agri-watermark-compensation-top.png)
 
-In **Instrument Manager → Sensors**, select the terminal and open **Watermark
-sensors**. Configure WM1, WM2, and WM3 together. Each Watermark resistance input
-is a separate soil-tension sensor. When exactly one temperature stream from the
-same terminal is available, the form preselects it; verify the choice. Assign
-the same terminal's DS18B20 as the temperature-compensation input when it is
-available. This compensation choice is separate from whether the physical
-DS18B20 is installed in air or soil.
+   *The next part of the form shows the WM2 and WM3 selections and the save controls.*
 
-Select **Save Watermark sensors** after reviewing the three inputs. When saved,
-the page shows compact summaries for each sensor with an **Edit Watermark
-sensors** link. If the form shows no unique candidate, select the correct
-temperature stream yourself or use the model reference only when appropriate.
+   ![The lower part of Sensor Settings shows the DS18B20 selected for WM2 and WM3.](../assets/screenshots/agri-watermark-compensation-lower.png)
 
-If no compensation input is selected, the built-in WATERMARK 200SS model uses
-its 24 °C reference and marks the resulting reading as estimated. Review the
-reading quality before using it to guide irrigation. New Irrigation inputs
-accept estimated measurements by default; review that choice for the site and
-preserve an existing explicit opt-out.
+3. **Save and check the sensor setup.** Select **Save Watermark sensors**.
+   The page should show a summary for each Watermark sensor and an **Edit
+   Watermark sensors** link.
 
-No separate mandatory calibration step is required to begin setup. Where the
-installed sensor model offers calibration or correction, use measured values
-and the site acceptance limits. Do not invent correction values or treat a
-model's range as proof of field accuracy.
+4. **Review estimated readings and corrections.** Without a compensation
+   input, the built-in WATERMARK 200SS model uses its 24 °C reference and marks
+   the derived reading as estimated. New Irrigation inputs accept estimated
+   readings by default. Review that choice for the site and preserve an
+   existing explicit opt-out. No separate calibration is required to begin
+   setup. Correction starts at zero. Keep zero correction unless measured
+   values and the site's acceptance limits support a change. If the installed
+   model offers calibration, use measured values and those limits.
 
-## 3. Register all Agri sources in Core
+5. **Register the Agri sources in Core.** Open **Core → Channels** and use the
+   Agri checklist in [Register and Commission a Terminal](commission-a-terminal.md).
+   Register every supported source, the three derived soil-tension streams,
+   and the valve endpoint before choosing station inputs. The simple station
+   setup uses seven measurement inputs: three derived tensions, one
+   temperature role, and three diagnostics.
 
-The Watermark setup creates three derived soil-tension streams in addition to
-the native resistance streams. In **Core → Channels**, register every source
-and the valve endpoint using the Agri checklist in [Register and Commission a
-Terminal](commission-a-terminal.md). Do this before choosing station inputs;
-the seven inputs in the simple setup are the three derived tensions, one
-temperature role, and three diagnostics.
+6. **Review and save the station.** Open **Irrigation setup**. Under **Set up
+   an Agri station**, select the terminal and enter a station name. Set
+   **Temperature sensor measures** to **Air temperature** or **Soil
+   temperature** to match the DS18B20's physical location. Select the normally
+   open or normally closed valve type from the approved installation record.
+   Review the seven inputs and suggested Core measurements, then select **Save
+   reviewed station**. The station list shows **Station inputs saved**. Select
+   the station name to open it. If the
+   terminal already has a station, select **Review and resume station** and
+   check its saved settings before changing them.
 
-## 4. Create or resume a monitoring station
+7. **Check the saved settings.** A new station starts in monitoring mode.
+   **Measurement inputs** and **Station settings** show summaries. Use **Edit
+   inputs**, **Edit name and location**, **Edit valve setting**, or **Change
+   zone** to make a change. **Cancel** leaves saved settings intact. Farm and
+   field details can be added later in **Advanced farm setup**; get probe
+   depths, crop values, soil settings, and irrigation thresholds from the site
+   plan instead of guessing. You do not need to repeat setup on each visit.
 
-1. Open **Irrigation setup**.
-2. Under **Set up an Agri station**, choose the Agri terminal and enter a station
-   name.
-3. For **Temperature sensor measures**, choose **Air temperature** or **Soil
-   temperature** to match where the DS18B20 is physically installed.
-4. Choose the installed valve wiring, normally open or normally closed, from the
-   approved installation record.
-5. Review the seven listed Agri inputs and each suggested Core measurement.
-   Resolve any missing or ambiguous source in Devices/Core before continuing.
-6. Select **Save reviewed station**. Confirm the success message and open the
-   station.
+8. **Check readings.** In the station, check the three soil-tension readings,
+   temperature, diagnostics, timestamps, and reading quality. Confirm that the
+   temperature role matches the DS18B20's physical location. Agri's minimum
+   reporting interval is 15 seconds; confirm fresh reports and timestamps
+   before relying on a requested interval.
 
-New stations start in monitoring mode. Farm and field information can be added
-later through **Advanced farm setup**. Do not guess probe depths, crop values,
-soil settings, or irrigation thresholds; obtain these from the site plan.
+For valve operation, follow the site's approved procedure and use a compatible
+latching valve. A command or reported valve state alone does not prove that
+water is flowing. See [Operate Irrigation](operate-irrigation.md).
 
-If a station already exists for this terminal, choose **Review and resume
-station** before changing setup. Compare its saved inputs, temperature role,
-and valve wiring with the installation. Preserve an existing measurement policy
-unless an authorized operator intentionally changes it.
-
-After saving, **Measurement inputs** and **Station settings** show compact
-summaries. Use **Edit inputs** to change measurement assignments, or **Edit name and
-location**, **Edit valve setting**, and **Change zone** for station details.
-Successful saves return to the summary; **Cancel** leaves saved settings intact.
-You do not need to repeat setup on each visit.
-
-## 5. Review readings and control state
-
-Open the station and check that the three soil-tension readings, temperature,
-diagnostics, and timestamps are current. Confirm whether the temperature is
-reported as air or soil according to its physical placement. A valid software
-reading is not independent sensor calibration or a field placement check.
-
-Agri's minimum reporting interval is 15 seconds. A saved or queued interval is
-not proof the terminal has applied it; confirm fresh reports and their
-timestamps against the requested supported interval. Do not use a shorter
-requested interval as an acceptance target.
-
-Before any valve operation, confirm the site's authorization, compatible
-latching valve, water supply, and independent means of checking valve and flow
-state. A valve command or reported state alone does not prove that water is
-flowing. For operating instructions, see [Operate Irrigation](operate-irrigation.md).
-
-For installation limits and acceptance evidence still required, see
+For installation limits, see
 [Self-install Readiness](../reference/self-install-gaps.md) and the
 [Installation Record](../reference/installation-record.md).
 

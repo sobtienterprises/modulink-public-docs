@@ -1,33 +1,49 @@
 # Operate Irrigation
 
-Use this workflow after completing [Agri Irrigation setup](set-up-agri-irrigation.md)
+Use these steps after completing [Agri Irrigation setup](set-up-agri-irrigation.md)
 and confirming the site's valve procedure.
 
-## 1. Check the station
+## Steps
 
-Open **Irrigation** and select the station. Review the latest soil-tension
-readings, the temperature role, battery and terminal diagnostics, alerts, and
-reported valve state. Check timestamps and quality before relying on a reading.
-Inspect the field when readings are unexpected or a sensor fault is shown.
+1. **Open the station.** Select **Irrigation → My Zones**, then select
+   **Review finite control** for the station.
+   **Expected:** the station page opens with its readings and controls.
 
-## 2. Open the valve
+2. **Check the station readings.** Review soil tension, temperature, battery,
+   terminal diagnostics, alerts, timestamps, reading quality, and the valve
+   state last reported by the terminal. Confirm that the readings are fresh
+   before you act. Inspect the field if a reading is unexpected or a sensor
+   fault appears.
+   **Expected:** the readings and reported state are current and understood.
 
-Use **Manual override** only when an operator is authorized and the approved
-field procedure is ready. Enter an approved value in **Open for (minutes)** when
-using a finite run, then select **Open valve**. Do not infer water flow from the
-command or the valve state alone.
+3. **Enter an approved duration.** Under **Manual override**, enter the
+   duration approved by the site's valve procedure in **Open for (minutes)**.
+   **Expected:** the requested duration appears in the field.
 
-## 3. Confirm and close
+4. **Open the valve.** Select **Open valve** once.
+   **Expected:** the application shows a countdown. Wait for a fresh **Open**
+   report. A command result or reported valve state does not prove that water
+   is flowing.
 
-Wait for a fresh reported valve state and verify the physical result when the
-operation requires it. Select **Close valve** when closure is needed, then wait
-for fresh closed-state feedback. A browser closing is not a closure procedure.
-The Basestation must remain powered and the radio link must deliver the command;
-use the site's independent closure procedure if communication fails.
+   ![Manual override shows Valve open, the device report time, and 14 seconds left on the timer.](../assets/screenshots/agri-finite-manual-open-countdown.png)
 
-## 4. Review the record
+   *The countdown continues while the valve is open. Use Close valve to stop early.*
 
-Review station history and alerts after the operation. Record any unexpected
-valve state, missing report, or safety condition before starting another run.
+5. **Wait for the timer.** When the countdown ends, the application shows
+   **Waiting for the valve to close…** Wait for a fresh **Closed** report.
+   Timer expiry alone does not confirm that the valve closed.
+
+   ![Manual override shows a fresh Valve closed report after the timed run.](../assets/screenshots/agri-finite-manual-closed.png)
+
+   *Check the report time as well as the valve state.*
+
+To stop early, select **Close valve**, then wait for a fresh **Closed** report.
+The timer continues if you close the browser. Keep the Basestation powered so
+it can send the close command. If communication fails, use the site's
+independent closure procedure.
+
+Verify the physical result when the site procedure requires it. Check the
+station state and alerts before another operation. A reported valve state
+does not prove that water is flowing.
 
 Last reviewed: 2026-09-27.
