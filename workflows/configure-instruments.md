@@ -54,7 +54,7 @@ The command status and the reported output answer different questions:
 | Command status | Meaning |
 | --- | --- |
 | Queued or accepted by the network | Delivery is progressing; terminal application is not yet confirmed. |
-| Device reports applied | The terminal acknowledged application. Verify the fresh reported output and physical result separately. |
+| Command acknowledged | The terminal accepted the command. For Agri, this can acknowledge a valve pulse before its outcome is known. Check the fresh reported output and physical result separately. |
 | Duplicate ignored | This receipt does not establish whether an earlier attempt applied the command. Application remains unconfirmed. |
 | Busy or rejected | The terminal did not accept this attempt. Review the result before deciding whether to retry. |
 | Delivery unconfirmed or status unavailable | The outcome is unknown. Inspect the reported state before sending another command. |
