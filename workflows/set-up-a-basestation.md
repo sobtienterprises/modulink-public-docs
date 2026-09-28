@@ -65,6 +65,14 @@ network isolation. A direct IP address does not bypass a disconnected network.
    the new password, and its confirmation. Select **Change Password**.
 4. Store the new password in the site's approved password store.
 
+After signing in, the Dashboard can show empty Skill cards.
+
+![Dashboard after sign-in, with empty Skill cards and devices awaiting setup.](../assets/screenshots/dashboard-before-terminal-setup.png)
+
+*Example: the Dashboard before terminal setup. The device count may differ.*
+
+<a href="https://sobtienterprises.github.io/modulink-public-docs/assets/screenshots/dashboard-before-terminal-setup.png" target="_blank" rel="noopener">Open full-size image</a>
+
 Do not use a password printed in an old manual. If the supplied account fails,
 have the site administrator reset it.
 
