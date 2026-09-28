@@ -25,6 +25,13 @@ real-world measurement such as pressure.
    as a separate channel. **Expected:** each saved channel appears in Core. A
    state channel does not send a command.
 
+   ![Add a channel with Measurement selected and Voltage input 1 chosen as the Core stream.](../assets/screenshots/core-add-voltage-channel.png)
+
+   This example adds a raw voltage reading. Check that the selected source
+   belongs to your terminal. Then select **Save binding**.
+
+   <a href="https://sobtienterprises.github.io/modulink-public-docs/assets/screenshots/core-add-voltage-channel.png" target="_blank" rel="noopener">Open full-size image</a>
+
 4. **Map an analog input when you need a real-world measurement.** Open
    **Devices → Sensor Settings → Map sensors to inputs**. Select the matching **Sensor
    model** and check its measurement and signal ranges. Some models provide
