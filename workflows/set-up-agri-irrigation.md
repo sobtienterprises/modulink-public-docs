@@ -62,8 +62,10 @@ valve or start automatic control.
    setup uses seven measurement inputs: three derived tensions, one
    temperature role, and three diagnostics.
 
-6. **Review and save the station.** Open **Irrigation setup**. Under **Set up
-   an Agri station**, select the terminal and enter a station name. Set
+6. **Review and save the station.** Open **Irrigation setup**. You can also
+   open an existing zone and select **Add station**. Under **Set up an Agri
+   station**, select the terminal by name and enter a station name. If you
+   started from a zone, check the zone name shown in the form. Set
    **Temperature sensor measures** to **Air temperature** or **Soil
    temperature** to match the DS18B20's physical location. Select the normally
    open or normally closed valve type from the approved installation record.
@@ -78,7 +80,9 @@ valve or start automatic control.
 
    <a href="https://sobtienterprises.github.io/modulink-public-docs/assets/screenshots/agri-station-saved-setup.png" target="_blank" rel="noopener">Open full-size image</a>
 
-7. **Put the station in a zone.** Under **Create or choose a zone**, select an
+7. **Put the station in a zone.** If you saved the station from a zone, it
+   already belongs to that zone. Check that its card appears there. Otherwise,
+   under **Create or choose a zone**, select an
    existing zone, or select **New zone** and enter a name. If you do not know
    the field, choose **No field**. You can add a field later. Select the new
    zone, then select **Assign station**. The choice panel closes after the
@@ -117,8 +121,9 @@ valve or start automatic control.
    to repeat setup on each visit.
 
    Leave unknown crop, soil, depth, and strategy values unset. **Advanced farm
-   setup** currently needs an operation name before it can continue. You do not
-   need Advanced farm setup to monitor this station.
+   setup** is optional. If you use it, you can leave the operation name blank,
+   but you must select the site’s time zone. You do not need Advanced farm
+   setup to monitor this station.
 
 9. **Check readings.** In the station, check the three soil-tension readings,
    temperature, diagnostics, timestamps, and reading quality. Confirm that the
@@ -126,6 +131,13 @@ valve or start automatic control.
    reports no more often than every 15 seconds. A shorter requested interval
    will not make readings arrive sooner. Check the last report time before
    relying on a reading.
+
+   ![Backyard shows three Watermark readings, air temperature, battery voltage, and the reported valve state after setup.](../assets/screenshots/agri-backyard-live-readings.png)
+
+   <a href="https://sobtienterprises.github.io/modulink-public-docs/assets/screenshots/agri-backyard-live-readings.png" target="_blank" rel="noopener">Open full-size image</a>
+
+   *This example uses the DS18B20 as an air temperature sensor. WM1, WM2, and
+   WM3 have no depths set. No irrigation program is enabled.*
 
 For valve operation, follow the site's approved procedure and use a compatible
 latching valve. A command or reported valve state alone does not prove that
@@ -135,4 +147,4 @@ For installation limits, see
 [Self-install Readiness](../reference/self-install-gaps.md) and the
 [Installation Record](../reference/installation-record.md).
 
-Last reviewed: 2026-09-28.
+Last reviewed: 2026-09-30.
